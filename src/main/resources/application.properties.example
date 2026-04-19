@@ -1,0 +1,15 @@
+# 複製這個檔案為 application.properties 並填入實際值
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/eventportal
+spring.datasource.username=postgres
+spring.datasource.password=你的密碼
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+spring.jackson.serialization.indent-output=true
+server.port=8080
+
+anthropic.api.key=你的API_KEY

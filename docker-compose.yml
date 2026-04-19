@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+
+  # PostgreSQL 資料庫容器
+  db:
+    image: postgres:16-alpine       # 使用官方 PostgreSQL 16 映像檔
+    container_name: eventportal-db
+    environment:
+      POSTGRES_DB: eventportal      # 自動建立這個資料庫
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres   # 容器內的密碼，跟本機不同也沒關係
+    volumes:
+      # 把資料庫資料存到本機，容器刪掉資料不會不見
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"   # 本機 5433 對應容器內 5432（避免跟本機 PostgreSQL 衝突）
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Spring Boot 應用程式容器
+  app:
+    build: .                        # 用當前目錄的 Dockerfile 建立
+    container_name: eventportal-app
+    ports:
+      - "8080:8080"                 # 本機 8080 對應容器內 8080
+    environment:
+      # 覆蓋 application.properties 的設定
+      # 這裡的 db 是上面那個服務的名稱，Docker Compose 會自動解析成 IP
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/eventportal
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}  # 從環境變數讀取，不寫死
+    depends_on:
+      db:
+        condition: service_healthy  # 等 db 健康檢查通過才啟動 app
+    restart: on-failure             # 如果啟動失敗自動重試
+
+volumes:
+  postgres_data:                    # 宣告這個 volume 讓資料持久化
