@@ -1,16 +1,16 @@
-# 🎓 Campus Event Portal
+#  Campus Event Portal
 
 A full-stack event management system for campus activities,  
 featuring AI-powered description generation and containerized deployment.
 
-## ✨ Features
+##  Features
 
 - **Event Management** — Create, browse, and delete campus events with full CRUD operations
 - **Event Registration** — Register for events with duplicate and capacity validation
 - **AI Description Generator** — Auto-generate event descriptions from keywords using Claude AI
 - **Containerized Deployment** — Fully dockerized with Docker Compose for one-command startup
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -21,7 +21,7 @@ featuring AI-powered description generation and containerized deployment.
 | DevOps | Docker · Docker Compose |
 | Version Control | Git · GitHub |
 
-## 🏗 System Architecture
+##  System Architecture
 Browser (HTML + JS)
 │  Fetch API
 ▼
@@ -35,7 +35,7 @@ Spring Boot (port 8080)
 PostgreSQL (port 5432)
 ├── events
 └── registrations
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Docker Desktop
@@ -76,7 +76,7 @@ psql -U postgres -c "CREATE DATABASE eventportal;"
 ./mvnw spring-boot:run
 ```
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Events
 | Method | Endpoint | Description |
@@ -99,7 +99,7 @@ psql -U postgres -c "CREATE DATABASE eventportal;"
 |--------|----------|-------------|
 | POST | `/api/ai/generate-description` | Generate event description from keywords |
 
-## 📁 Project Structure
+##  Project Structure
 event-portal/
 ├── src/main/java/com/github/boan0822/event_portal/
 │   ├── controller/          # REST API routes
