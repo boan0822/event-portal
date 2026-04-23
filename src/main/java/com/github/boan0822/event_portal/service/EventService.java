@@ -3,6 +3,8 @@ package com.github.boan0822.event_portal.service;
 import com.github.boan0822.event_portal.dto.EventRequest;
 import com.github.boan0822.event_portal.model.Event;
 import com.github.boan0822.event_portal.repository.EventRepository;
+import com.github.boan0822.event_portal.repository.RegistrationRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -12,8 +14,9 @@ import java.util.List;
 public class EventService {
 
     private final EventRepository eventRepository;
-
+    private final RegistrationRepository registrationRepository;
     // 取得所有活動
+    
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }

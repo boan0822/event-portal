@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>登入 - 校園活動管理平台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+
+    <div class="login-container">
+        <div class="login-card">
+            <h1>校園活動管理平台</h1>
+            <p class="login-subtitle">請登入以繼續</p>
+
+            <div class="form-group">
+                <label>帳號</label>
+                <input type="text" id="username" placeholder="輸入帳號">
+            </div>
+
+            <div class="form-group">
+                <label>密碼</label>
+                <input type="password" id="password" placeholder="輸入密碼">
+            </div>
+
+            <button onclick="login()">登入</button>
+
+            <p id="login-error" class="error-msg"></p>
+
+            <p class="login-hint">預設管理員帳號：admin / admin123</p>
+        </div>
+        <!-- 註冊表單 -->
+            <div id="register-form" class="hidden">
+                <div class="form-group">
+                    <label>帳號</label>
+                    <input type="text" id="reg-username" placeholder="設定帳號">
+                </div>
+                <div class="form-group">
+                    <label>密碼</label>
+                    <input type="password" id="reg-password" placeholder="設定密碼">
+                </div>
+                <button onclick="register()">註冊</button>
+            </div>
+
+            <p id="login-error" class="error-msg"></p>
+        
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

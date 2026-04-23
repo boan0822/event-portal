@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>校園活動管理平台</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- 頁面標題 -->
     <header>
-        <h1>校園活動管理平台</h1>
-        <p>Campus Event Portal</p>
+        <div class="header-content">
+            <div>
+                <h1>校園活動管理平台</h1>
+                <p>Campus Event Portal</p>
+                <link rel="stylesheet" href="style.css">
+            </div>
+            <!-- 右上角顯示登入者資訊和登出按鈕 -->
+            <div class="header-user">
+                <span id="header-username"></span>
+                <span id="header-role" class="role-badge"></span>
+                <button onclick="logout()">登出</button>
+            </div>
+        </div>
     </header>
+    <body>
+
+   
 
     <main>
 
@@ -65,7 +70,7 @@
                     <input type="number" id="capacity" required min="1" placeholder="例如：100">
                 </div>
 
-                <button type="button" onclick="submitcreateEvent()">新增活動</button>
+                <button type="button" onclick="submitCreateEvent()">新增活動</button>
             </form>
         </section>
 
@@ -104,7 +109,7 @@
             </div>
         </div>
     </div>
-
+    <script src="auth.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
