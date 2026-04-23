@@ -52,7 +52,7 @@ async function loadEvents() {
 }
 
 // 新增活動
-async function createEvent() {
+async function submitcreateEvent() {
     // 從表單取得使用者填入的資料
     const eventData = {
         title:       document.getElementById('title').value,
@@ -157,9 +157,9 @@ async function submitRegistration() {
             alert('報名成功！');
             closeModal();
         } else {
-            const error = await response.json();
-            // 後端的錯誤訊息（名額已滿、重複報名）會顯示在這裡
-            alert('報名失敗：' + error.message);
+            const data = await response.json();
+            
+            alert('報名失敗：' + data.error);
         }
 
     } catch (error) {

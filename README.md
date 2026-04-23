@@ -40,7 +40,7 @@ PostgreSQL (port 5432)
 ### Prerequisites
 - Docker Desktop
 
-### Run with Docker (Recommended)
+### Run with Docker 
 
 **1. Clone the repository**
 ```bash
